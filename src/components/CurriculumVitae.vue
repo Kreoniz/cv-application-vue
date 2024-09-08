@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import ExperienceSection from "@/components/ExperienceSection.vue";
+</script>
+
 <template>
   <div class="shadow-xl w-full h-full">
     <div class="p-2 bg-sky-800 text-white flex items-center gap-4">
@@ -8,7 +12,9 @@
       </div>
     </div>
 
-    <div class="border-b p-2">Work experience block</div>
+    <div class="border-b p-2">
+      <ExperienceSection />
+    </div>
 
     <div class="p-2">Education block</div>
   </div>
