@@ -2,8 +2,8 @@
 defineProps<{
   schoolName: string;
   title: string;
-  start_date: string;
-  end_date: string;
+  startDate: string;
+  endDate: string;
 }>();
 </script>
 
@@ -11,7 +11,7 @@ defineProps<{
   <div class="my-4">
     <div>
       <div class="leading-5 font-semibold text-xl">{{ schoolName }}</div>
-      <div class="text-sm text-black/60">{{ start_date }} - {{ end_date }}</div>
+      <div class="text-sm text-black/60">{{ startDate }} - {{ endDate }}</div>
     </div>
     <div class="text-lg">{{ title }}</div>
   </div>

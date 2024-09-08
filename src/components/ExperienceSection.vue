@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import ExperienceCard from "@/components/ExperienceCard.vue";
+import { useCVStore } from "@/stores/cv";
 
+const cv = useCVStore();
 const jobList = [
   {
     id: 1,
@@ -47,12 +49,12 @@ const jobList = [
       Work experience section
     </div>
     <ExperienceCard
-      v-for="job in jobList"
+      v-for="job in cv.jobList"
       :key="job.id"
       :companyName="job.companyName"
       :position="job.position"
-      :start_date="job.start_date"
-      :end_date="job.end_date"
+      :startDate="job.startDate"
+      :endDate="job.endDate"
       :description="job.description"
     />
   </div>
