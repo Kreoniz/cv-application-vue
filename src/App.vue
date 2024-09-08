@@ -1,11 +1,16 @@
 <script setup lang="ts">
 import CurriculumVitae from "@/components/CurriculumVitae.vue";
+import GeneralInfoForm from "@/components/GeneralInfoForm.vue";
 </script>
 
 <template>
-  <div>CV application</div>
+  <div class="flex gap-10 m-4">
+    <div>
+      <GeneralInfoForm />
+    </div>
 
-  <div class="w-1/2 mx-auto">
-    <CurriculumVitae />
+    <div>
+      <CurriculumVitae />
+    </div>
   </div>
 </template>
