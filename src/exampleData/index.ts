@@ -1,0 +1,1 @@
+export { cvExampleData } from "./cvExampleData";
