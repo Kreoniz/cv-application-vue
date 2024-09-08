@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ExperienceSection from "@/components/ExperienceSection.vue";
+import EducationSection from "@/components/EducationSection.vue";
 </script>
 
 <template>
@@ -16,6 +17,8 @@ import ExperienceSection from "@/components/ExperienceSection.vue";
       <ExperienceSection />
     </div>
 
-    <div class="p-2">Education block</div>
+    <div class="p-2">
+      <EducationSection />
+    </div>
   </div>
 </template>
