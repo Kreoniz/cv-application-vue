@@ -8,11 +8,15 @@ import { cvExampleData } from "@/exampleData";
 const cv = useCVStore();
 
 onMounted(() => {
-  cv.$patch({
-    generalInfo: cvExampleData.generalInfo,
-    educationList: cvExampleData.educationList,
-    jobList: cvExampleData.jobList,
-  });
+  cv.generalInfo = cvExampleData.generalInfo;
+
+  for (let i = 0; i < cvExampleData.educationList.length; i++) {
+    cv.educationList.push(cvExampleData.educationList[i]);
+  }
+
+  for (let i = 0; i < cvExampleData.jobList.length; i++) {
+    cv.jobList.push(cvExampleData.jobList[i]);
+  }
 });
 </script>
 
