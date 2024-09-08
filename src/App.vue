@@ -7,7 +7,14 @@ import { cvExampleData } from "@/exampleData";
 
 const cv = useCVStore();
 
-onMounted(() => {
+const clearCV = () => {
+  cv.generalInfo = {};
+  cv.educationList = [];
+  cv.jobList = [];
+};
+
+const loadExampleData = () => {
+  clearCV();
   cv.generalInfo = cvExampleData.generalInfo;
 
   for (let i = 0; i < cvExampleData.educationList.length; i++) {
@@ -17,16 +24,34 @@ onMounted(() => {
   for (let i = 0; i < cvExampleData.jobList.length; i++) {
     cv.jobList.push(cvExampleData.jobList[i]);
   }
+};
+
+onMounted(() => {
+  loadExampleData();
 });
 </script>
 
 <template>
   <div class="flex gap-10 m-4">
     <div>
+      <div class="mb-4 flex justify-between">
+        <button
+          @click="clearCV"
+          class="p-2 border-2 hover:bg-gray-200 transition-colors"
+        >
+          Clear CV
+        </button>
+        <button
+          @click="loadExampleData"
+          class="p-2 border-2 hover:bg-gray-200 transition-colors"
+        >
+          Load example data
+        </button>
+      </div>
       <GeneralInfoForm />
     </div>
 
-    <div>
+    <div class="w-1/2">
       <CurriculumVitae />
     </div>
   </div>
