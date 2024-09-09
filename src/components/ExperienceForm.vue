@@ -89,7 +89,9 @@ const handleCreateItem = () => {
     <h2 class="font-bold text-xl">Experience Information</h2>
     <div class="my-2">
       <button
-        :disabled="isCreating && selectedItem && selectedItem.id === item.id"
+        :disabled="
+          Boolean(isCreating && selectedItem && selectedItem.id === item.id)
+        "
         v-for="item in cv.jobList"
         :key="item.id"
         @click="() => handleSelectItem(item)"
