@@ -11,7 +11,9 @@
     "format": "prettier ./src/ --write"
   },
   "dependencies": {
+    "@types/uuid": "^10.0.0",
     "pinia": "^2.2.2",
+    "uuid": "^10.0.0",
     "vue": "^3.4.37"
   },
   "devDependencies": {
