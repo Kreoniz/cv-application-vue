@@ -8,7 +8,7 @@ const cv = useCVStore();
 <template>
   <div>
     <div class="text-xl font-semibold border-b-2 border-black">
-      Work experience section
+      Work experience
     </div>
     <ExperienceCard
       v-for="job in cv.jobList"

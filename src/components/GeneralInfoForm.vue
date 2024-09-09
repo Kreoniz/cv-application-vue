@@ -12,7 +12,7 @@ const cv = useCVStore();
         <label for="name" class="text-lg">Full name:</label>
         <input
           id="name"
-          class="border-2 block p-1"
+          class="border-2 block p-1 w-full"
           type="text"
           placeholder="Arthur Dent"
           v-model="cv.generalInfo.name"
@@ -23,7 +23,7 @@ const cv = useCVStore();
         <label for="email" class="text-lg">Email:</label>
         <input
           id="email"
-          class="border-2 block p-1"
+          class="border-2 block p-1 w-full"
           type="email"
           placeholder="example@domain.com"
           v-model="cv.generalInfo.email"
@@ -34,7 +34,7 @@ const cv = useCVStore();
         <label for="phone" class="text-lg">Phone number:</label>
         <input
           id="phone"
-          class="border-2 block p-1"
+          class="border-2 block p-1 w-full"
           type="tel"
           placeholder="(123) 456-7890"
           v-model="cv.generalInfo.phone"
