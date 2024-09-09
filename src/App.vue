@@ -2,6 +2,7 @@
 import CurriculumVitae from "@/components/CurriculumVitae.vue";
 import GeneralInfoForm from "@/components/GeneralInfoForm.vue";
 import EducationForm from "@/components/EducationForm.vue";
+import ExperienceForm from "@/components/ExperienceForm.vue";
 
 import { onMounted } from "vue";
 import { useCVStore } from "@/stores/cv";
@@ -54,6 +55,7 @@ onMounted(() => {
       <div class="flex flex-col gap-4">
         <GeneralInfoForm />
         <EducationForm />
+        <ExperienceForm />
       </div>
     </div>
 
