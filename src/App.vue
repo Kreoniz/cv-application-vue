@@ -36,7 +36,7 @@ onMounted(() => {
 
 <template>
   <div class="flex gap-10 m-4 justify-center">
-    <div class="flex-grow max-w-96">
+    <div class="shrink-0 w-96">
       <div class="mb-4 flex justify-between">
         <button
           @click="clearCV"
@@ -59,7 +59,7 @@ onMounted(() => {
       </div>
     </div>
 
-    <div class="w-[800px] h-[1128px]">
+    <div class="w-[800px] h-[1200px] overflow-hidden">
       <CurriculumVitae />
     </div>
   </div>
