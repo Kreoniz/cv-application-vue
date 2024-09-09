@@ -82,6 +82,7 @@ const handleCreateItem = () => {
     <h2 class="font-bold text-xl">Education form</h2>
     <div class="my-2">
       <button
+        disabled="isCreating && selectedItem && selectedItem.id === item.id"
         v-for="item in cv.educationList"
         :key="item.id"
         @click="() => handleSelectItem(item)"
@@ -155,18 +156,27 @@ const handleCreateItem = () => {
       </div>
 
       <div class="flex justify-between">
-        <button @click="handleCancel" type="button" class="border-2 p-2">
+        <button
+          @click="handleCancel"
+          type="button"
+          class="border-2 p-2 hover:bg-gray-200 transition-colors"
+        >
           Cancel
         </button>
         <button
           v-if="!isCreating"
           @click="() => handleRemove(selectedItem!.id)"
           type="button"
-          class="border-2 p-2"
+          class="border-2 p-2 hover:bg-gray-200 transition-colors"
         >
           Remove
         </button>
-        <button type="submit" class="border-2 p-2">Submit</button>
+        <button
+          type="submit"
+          class="border-2 p-2 hover:bg-gray-200 transition-colors"
+        >
+          Submit
+        </button>
       </div>
     </form>
   </div>
