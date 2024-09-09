@@ -7,24 +7,24 @@ export const cvExampleData = {
 
   educationList: [
     {
-      id: 1,
+      id: "1",
       schoolName: "Crestwood University",
       title: "Bachelor of Science in Environmental Studies",
       startDate: "15.08.2016",
       endDate: "20.05.2020",
     },
     {
-      id: 2,
+      id: "2",
       schoolName: "Silver Oak College",
       title: "Master of Arts in Creative Writing",
       startDate: "01.09.2018",
-      endDate: "15.06.2020,",
+      endDate: "15.06.2020",
     },
   ],
 
   jobList: [
     {
-      id: 1,
+      id: "1",
       companyName: "CodeCanvas",
       position: "Software Architect",
       description:
@@ -33,7 +33,7 @@ export const cvExampleData = {
       endDate: "Present",
     },
     {
-      id: 2,
+      id: "2",
       companyName: "Web Weavers",
       position: "Backend Developer",
       description:
@@ -42,7 +42,7 @@ export const cvExampleData = {
       endDate: "10.09.2022",
     },
     {
-      id: 3,
+      id: "3",
       companyName: "Awesome Company inc.",
       position: "Fullstack Developer",
       description:
@@ -51,7 +51,7 @@ export const cvExampleData = {
       endDate: "03.05.2021",
     },
     {
-      id: 4,
+      id: "4",
       companyName: "Awesome Company inc.",
       position: "Frontend Developer",
       description:

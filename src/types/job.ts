@@ -1,4 +1,5 @@
 export type TJob = {
+  id: string;
   companyName: string;
   position: string;
   description: string;

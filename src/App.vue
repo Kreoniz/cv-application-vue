@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import CurriculumVitae from "@/components/CurriculumVitae.vue";
 import GeneralInfoForm from "@/components/GeneralInfoForm.vue";
+import EducationForm from "@/components/EducationForm.vue";
+
 import { onMounted } from "vue";
 import { useCVStore } from "@/stores/cv";
 import { cvExampleData } from "@/exampleData";
@@ -8,7 +10,7 @@ import { cvExampleData } from "@/exampleData";
 const cv = useCVStore();
 
 const clearCV = () => {
-  cv.generalInfo = {};
+  cv.generalInfo = { name: "", email: "", phone: "" };
   cv.educationList = [];
   cv.jobList = [];
 };
@@ -48,7 +50,11 @@ onMounted(() => {
           Load example data
         </button>
       </div>
-      <GeneralInfoForm />
+
+      <div class="flex flex-col gap-4">
+        <GeneralInfoForm />
+        <EducationForm />
+      </div>
     </div>
 
     <div class="w-1/2">
