@@ -79,10 +79,10 @@ const handleCreateItem = () => {
 
 <template>
   <div class="border-2 p-4 rounded-md">
-    <h2 class="font-bold text-xl">Education form</h2>
+    <h2 class="font-bold text-xl">Education Information</h2>
     <div class="my-2">
       <button
-        disabled="isCreating && selectedItem && selectedItem.id === item.id"
+        :disabled="isCreating && selectedItem && selectedItem.id === item.id"
         v-for="item in cv.educationList"
         :key="item.id"
         @click="() => handleSelectItem(item)"
@@ -115,7 +115,7 @@ const handleCreateItem = () => {
         <label for="schoolName">School/University name:</label>
         <input
           id="schoolName"
-          class="border-2 block p-1"
+          class="border-2 block p-1 w-full"
           type="text"
           placeholder="School name"
           v-model="selectedItem!.schoolName"
@@ -126,7 +126,7 @@ const handleCreateItem = () => {
         <label for="title">Title:</label>
         <input
           id="title"
-          class="border-2 block p-1"
+          class="border-2 block p-1 w-full"
           type="text"
           placeholder="Title"
           v-model="selectedItem!.title"
@@ -137,7 +137,7 @@ const handleCreateItem = () => {
         <label for="startDate">Start date:</label>
         <input
           id="startDate"
-          class="border-2 block p-1"
+          class="border-2 block p-1 w-full"
           type="text"
           placeholder="Start date"
           v-model="selectedItem!.startDate"
@@ -148,7 +148,7 @@ const handleCreateItem = () => {
         <label for="endDate">End date:</label>
         <input
           id="endDate"
-          class="border-2 block p-1"
+          class="border-2 block p-1 w-full"
           type="text"
           placeholder="End date"
           v-model="selectedItem!.endDate"
