@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import type { Ref } from "vue";
-import { TExperience } from "@/types";
+import { TJob } from "@/types";
 import { useCVStore } from "@/stores/cv";
 import { v4 as uuidv4 } from "uuid";
 
 const cv = useCVStore();
 
 const isCreating = ref(false);
-const selectedItem: Ref<TExperience | null> = ref(null);
-let selectedItemSave: TExperience | null = null;
+const selectedItem: Ref<TJob | null> = ref(null);
+let selectedItemSave: TJob | null = null;
 
 const isSelected = computed(() => {
   return selectedItem.value && Object.keys(selectedItem.value).length > 0;
@@ -35,39 +35,46 @@ const handleCancel = () => {
   const id = selectedItem.value.id;
   if (isCreating.value) {
     handleRemove(id);
+    isCreating.value = false;
   } else {
     const index = cv.jobList.findIndex((item) => item.id === id);
-    cv.jobList.splice(index, 1, selectedItemSave as TExperience);
+    cv.jobList.splice(index, 1, selectedItemSave as TJob);
   }
 
   selectedItem.value = null;
   selectedItemSave = null;
 };
 
-const handleSelectItem = (item: TExperience) => {
-  isCreating.value = false;
-  if (
-    isSelected.value &&
-    selectedItem.value &&
-    selectedItem.value.id === item.id
-  ) {
-    handleCancel();
-  } else {
-    handleCancel();
+const handleSelectItem = (item: TJob) => {
+  const isSameItem = selectedItem.value && item.id === selectedItem.value.id;
+
+  if (isSameItem) {
+    const id = item.id;
+    const index = cv.jobList.findIndex((item) => item.id === id);
+    cv.jobList.splice(index, 1, selectedItemSave as TJob);
+
+    selectedItem.value = null;
+    selectedItemSave = null;
+  }
+
+  handleCancel();
+
+  if (!isSameItem) {
     selectedItem.value = item;
     selectedItemSave = { ...item };
   }
 };
 
 const handleCreateItem = () => {
+  handleCancel();
+
   isCreating.value = !isCreating.value;
-  if (!isCreating.value) {
-    handleCancel();
-  } else {
+  if (isCreating.value) {
     selectedItem.value = {
       id: uuidv4(),
       companyName: "",
-      title: "",
+      description: "",
+      position: "",
       startDate: "",
       endDate: "",
     };

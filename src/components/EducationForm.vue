@@ -35,6 +35,7 @@ const handleCancel = () => {
   const id = selectedItem.value.id;
   if (isCreating.value) {
     handleRemove(id);
+    isCreating.value = false;
   } else {
     const index = cv.educationList.findIndex((item) => item.id === id);
     cv.educationList.splice(index, 1, selectedItemSave as TEducation);
@@ -45,25 +46,30 @@ const handleCancel = () => {
 };
 
 const handleSelectItem = (item: TEducation) => {
-  isCreating.value = false;
-  if (
-    isSelected.value &&
-    selectedItem.value &&
-    selectedItem.value.id === item.id
-  ) {
-    handleCancel();
-  } else {
-    handleCancel();
+  const isSameItem = selectedItem.value && item.id === selectedItem.value.id;
+
+  if (isSameItem) {
+    const id = item.id;
+    const index = cv.educationList.findIndex((item) => item.id === id);
+    cv.educationList.splice(index, 1, selectedItemSave as TEducation);
+
+    selectedItem.value = null;
+    selectedItemSave = null;
+  }
+
+  handleCancel();
+
+  if (!isSameItem) {
     selectedItem.value = item;
     selectedItemSave = { ...item };
   }
 };
 
 const handleCreateItem = () => {
+  handleCancel();
+
   isCreating.value = !isCreating.value;
-  if (!isCreating.value) {
-    handleCancel();
-  } else {
+  if (isCreating.value) {
     selectedItem.value = {
       id: uuidv4(),
       schoolName: "",
