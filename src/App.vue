@@ -59,7 +59,7 @@ onMounted(() => {
       </div>
     </div>
 
-    <div class="w-[800px] h-[1200px] overflow-hidden">
+    <div class="w-[800px] h-[1200px]">
       <CurriculumVitae />
     </div>
   </div>

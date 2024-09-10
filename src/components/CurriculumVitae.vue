@@ -7,7 +7,7 @@ const cv = useCVStore();
 </script>
 
 <template>
-  <div class="shadow-xl w-full h-full">
+  <div class="shadow-xl w-full h-full overflow-hidden">
     <div
       class="p-8 bg-sky-800 text-white flex items-center gap-4 justify-center flex-wrap"
     >
