@@ -142,9 +142,9 @@ const handleCreateItem = () => {
       </div>
 
       <div>
-        <label for="startDate">Start date:</label>
+        <label for="educationStartDate">Start date:</label>
         <input
-          id="startDate"
+          id="educationStartDate"
           class="border-2 block p-1 w-full"
           type="text"
           placeholder="Start date"
@@ -153,9 +153,9 @@ const handleCreateItem = () => {
       </div>
 
       <div>
-        <label for="endDate">End date:</label>
+        <label for="educationEndDate">End date:</label>
         <input
-          id="endDate"
+          id="educationEndDate"
           class="border-2 block p-1 w-full"
           type="text"
           placeholder="End date"

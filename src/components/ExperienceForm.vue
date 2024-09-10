@@ -154,9 +154,9 @@ const handleCreateItem = () => {
       </div>
 
       <div>
-        <label for="endDate">End date:</label>
+        <label for="educationEndDate">End date:</label>
         <input
-          id="endDate"
+          id="educationEndDate"
           class="border-2 block p-1 w-full"
           type="text"
           placeholder="End date"
