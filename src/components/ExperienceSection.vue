@@ -7,7 +7,7 @@ const cv = useCVStore();
 
 <template>
   <div>
-    <div class="text-xl font-semibold border-b-2 border-black">
+    <div class="border-b-2 border-black text-xl font-semibold">
       Work experience
     </div>
     <ExperienceCard

@@ -35,18 +35,18 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex gap-10 m-4 justify-center">
-    <div class="shrink-0 w-96">
+  <div class="m-4 flex justify-center gap-10">
+    <div class="w-96 shrink-0">
       <div class="mb-4 flex justify-between">
         <button
           @click="clearCV"
-          class="p-2 border-2 hover:bg-gray-200 transition-colors"
+          class="border-2 p-2 transition-colors hover:bg-gray-200"
         >
           Clear CV
         </button>
         <button
           @click="loadExampleData"
-          class="p-2 border-2 hover:bg-gray-200 transition-colors"
+          class="border-2 p-2 transition-colors hover:bg-gray-200"
         >
           Load example data
         </button>
@@ -59,7 +59,7 @@ onMounted(() => {
       </div>
     </div>
 
-    <div class="w-[800px] h-[1200px]">
+    <div class="h-[1200px] w-[800px]">
       <CurriculumVitae />
     </div>
   </div>

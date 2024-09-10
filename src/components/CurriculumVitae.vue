@@ -7,9 +7,9 @@ const cv = useCVStore();
 </script>
 
 <template>
-  <div class="shadow-xl w-full h-full overflow-hidden">
+  <div class="h-full w-full overflow-hidden shadow-xl">
     <div
-      class="p-8 bg-sky-800 text-white flex items-center gap-4 justify-center flex-wrap"
+      class="flex flex-wrap items-center justify-center gap-4 bg-sky-800 p-8 text-white"
     >
       <div class="text-4xl font-semibold">{{ cv.generalInfo.name }}</div>
       <div>

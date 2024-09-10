@@ -7,7 +7,7 @@ const cv = useCVStore();
 
 <template>
   <div>
-    <div class="text-xl font-semibold border-b-2 border-black">Education</div>
+    <div class="border-b-2 border-black text-xl font-semibold">Education</div>
     <EducationCard
       v-for="item in cv.educationList"
       :key="item.id"

@@ -87,8 +87,8 @@ const handleCreateItem = () => {
 </script>
 
 <template>
-  <div class="border-2 p-4 rounded-md">
-    <h2 class="font-bold text-xl">Experience Information</h2>
+  <div class="rounded-md border-2 p-4">
+    <h2 class="text-xl font-bold">Experience Information</h2>
     <div class="my-2">
       <button
         :disabled="
@@ -97,7 +97,7 @@ const handleCreateItem = () => {
         v-for="item in cv.jobList"
         :key="item.id"
         @click="() => handleSelectItem(item)"
-        class="text-lg border-2 my-2 block font-bold w-full text-left px-2 py-1 hover:bg-gray-200 transition-colors"
+        class="my-2 block w-full border-2 px-2 py-1 text-left text-lg font-bold transition-colors hover:bg-gray-200"
         :class="{
           'bg-gray-200':
             isSelected && selectedItem && selectedItem.id === item.id,
@@ -108,7 +108,7 @@ const handleCreateItem = () => {
 
       <button
         @click="handleCreateItem"
-        class="text-lg border-2 my-2 block font-bold w-full text-center px-2 py-1 hover:bg-gray-200 transition-colors"
+        class="my-2 block w-full border-2 px-2 py-1 text-center text-lg font-bold transition-colors hover:bg-gray-200"
         :class="{
           'bg-gray-200': isCreating,
         }"
@@ -126,7 +126,7 @@ const handleCreateItem = () => {
         <label for="companyName">Company name:</label>
         <input
           id="companyName"
-          class="border-2 block p-1 w-full"
+          class="block w-full border-2 p-1"
           type="text"
           placeholder="School name"
           v-model="selectedItem!.companyName"
@@ -137,7 +137,7 @@ const handleCreateItem = () => {
         <label for="position">Position:</label>
         <input
           id="position"
-          class="border-2 block p-1 w-full"
+          class="block w-full border-2 p-1"
           type="text"
           placeholder="Position"
           v-model="selectedItem!.position"
@@ -148,7 +148,7 @@ const handleCreateItem = () => {
         <label for="startDate">Start date:</label>
         <input
           id="startDate"
-          class="border-2 block p-1 w-full"
+          class="block w-full border-2 p-1"
           type="text"
           placeholder="Start date"
           v-model="selectedItem!.startDate"
@@ -159,7 +159,7 @@ const handleCreateItem = () => {
         <label for="educationEndDate">End date:</label>
         <input
           id="educationEndDate"
-          class="border-2 block p-1 w-full"
+          class="block w-full border-2 p-1"
           type="text"
           placeholder="End date"
           v-model="selectedItem!.endDate"
@@ -170,7 +170,7 @@ const handleCreateItem = () => {
         <label for="description">Description:</label>
         <textarea
           id="endDate"
-          class="border-2 block p-1 w-full"
+          class="block w-full border-2 p-1"
           type="text"
           placeholder="Description"
           v-model="selectedItem!.description"
@@ -181,7 +181,7 @@ const handleCreateItem = () => {
         <button
           @click="handleCancel"
           type="button"
-          class="border-2 p-2 hover:bg-gray-200 transition-colors"
+          class="border-2 p-2 transition-colors hover:bg-gray-200"
         >
           Cancel
         </button>
@@ -189,13 +189,13 @@ const handleCreateItem = () => {
           v-if="!isCreating"
           @click="() => handleRemove(selectedItem!.id)"
           type="button"
-          class="border-2 p-2 hover:bg-gray-200 transition-colors"
+          class="border-2 p-2 transition-colors hover:bg-gray-200"
         >
           Remove
         </button>
         <button
           type="submit"
-          class="border-2 p-2 hover:bg-gray-200 transition-colors"
+          class="border-2 p-2 transition-colors hover:bg-gray-200"
         >
           Submit
         </button>
