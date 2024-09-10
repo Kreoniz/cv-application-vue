@@ -18,6 +18,8 @@ const isSelected = computed(() => {
 const handleSubmit = () => {
   selectedItem.value = null;
   selectedItemSave = null;
+  isCreating.value = false;
+  handleCancel();
 };
 
 const handleRemove = (id: string) => {
