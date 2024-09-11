@@ -127,7 +127,7 @@ const cv = cvStore();
 
 const isCreating = ref(false);
 const selectedItem: Ref<TJob | null> = ref(null);
-const selectedItemSave: TJob | null = ref(null);
+const selectedItemSave: Ref<TJob | null> = ref(null);
 
 const isSelected = computed(() => {
   return selectedItem.value && Object.keys(selectedItem.value).length > 0;

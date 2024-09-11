@@ -116,7 +116,7 @@ const cv = cvStore();
 
 const isCreating = ref(false);
 const selectedItem: Ref<TEducation | null> = ref(null);
-const selectedItemSave: TEducation | null = ref(null);
+const selectedItemSave: Ref<TEducation | null> = ref(null);
 
 const isSelected = computed(() => {
   return selectedItem.value && Object.keys(selectedItem.value).length > 0;
