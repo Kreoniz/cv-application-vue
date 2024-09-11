@@ -127,7 +127,7 @@ const cv = cvStore();
 
 const isCreating = ref(false);
 const selectedItem: Ref<TJob | null> = ref(null);
-let selectedItemSave: TJob | null = null;
+const selectedItemSave: TJob | null = ref(null);
 
 const isSelected = computed(() => {
   return selectedItem.value && Object.keys(selectedItem.value).length > 0;
@@ -135,7 +135,7 @@ const isSelected = computed(() => {
 
 const handleSubmit = () => {
   selectedItem.value = null;
-  selectedItemSave = null;
+  selectedItemSave.value = null;
   isCreating.value = false;
   handleCancel();
 };
@@ -144,7 +144,7 @@ const handleRemove = (id: string) => {
   const index = cv.jobList.findIndex((item) => item.id === id);
   cv.jobList.splice(index, 1);
   selectedItem.value = null;
-  selectedItemSave = null;
+  selectedItemSave.value = null;
 };
 
 const handleCancel = () => {
@@ -158,11 +158,11 @@ const handleCancel = () => {
     isCreating.value = false;
   } else {
     const index = cv.jobList.findIndex((item) => item.id === id);
-    cv.jobList.splice(index, 1, selectedItemSave as TJob);
+    cv.jobList.splice(index, 1, selectedItemSave.value as TJob);
   }
 
   selectedItem.value = null;
-  selectedItemSave = null;
+  selectedItemSave.value = null;
 };
 
 const handleSelectItem = (item: TJob) => {
@@ -171,17 +171,17 @@ const handleSelectItem = (item: TJob) => {
   if (isSameItem) {
     const id = item.id;
     const index = cv.jobList.findIndex((item) => item.id === id);
-    cv.jobList.splice(index, 1, selectedItemSave as TJob);
+    cv.jobList.splice(index, 1, selectedItemSave.value as TJob);
 
     selectedItem.value = null;
-    selectedItemSave = null;
+    selectedItemSave.value = null;
   }
 
   handleCancel();
 
   if (!isSameItem) {
     selectedItem.value = item;
-    selectedItemSave = { ...item };
+    selectedItemSave.value = { ...item };
   }
 };
 
