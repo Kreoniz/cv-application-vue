@@ -1,9 +1,3 @@
-<script setup lang="ts">
-import { useCVStore } from "@/stores/cv";
-
-const cv = useCVStore();
-</script>
-
 <template>
   <div class="rounded-md border-2 p-4">
     <h2 class="mb-2 text-xl font-bold">General Information</h2>
@@ -43,3 +37,9 @@ const cv = useCVStore();
     </form>
   </div>
 </template>
+
+<script setup lang="ts">
+import { useCVStore } from "@/stores/cv";
+
+const cv = useCVStore();
+</script>

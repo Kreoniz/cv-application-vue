@@ -1,11 +1,3 @@
-<script setup lang="ts">
-import ExperienceSection from "@/components/ExperienceSection.vue";
-import EducationSection from "@/components/EducationSection.vue";
-import { useCVStore } from "@/stores/cv";
-
-const cv = useCVStore();
-</script>
-
 <template>
   <div class="h-full w-full overflow-hidden shadow-xl">
     <div
@@ -27,3 +19,11 @@ const cv = useCVStore();
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import ExperienceSection from "@/components/ExperienceSection.vue";
+import EducationSection from "@/components/EducationSection.vue";
+import { useCVStore } from "@/stores/cv";
+
+const cv = useCVStore();
+</script>

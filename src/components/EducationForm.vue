@@ -1,90 +1,3 @@
-<script setup lang="ts">
-import { ref, computed } from "vue";
-import type { Ref } from "vue";
-import { TEducation } from "@/types";
-import { useCVStore } from "@/stores/cv";
-import { v4 as uuidv4 } from "uuid";
-
-const cv = useCVStore();
-
-const isCreating = ref(false);
-const selectedItem: Ref<TEducation | null> = ref(null);
-let selectedItemSave: TEducation | null = null;
-
-const isSelected = computed(() => {
-  return selectedItem.value && Object.keys(selectedItem.value).length > 0;
-});
-
-const handleSubmit = () => {
-  selectedItem.value = null;
-  selectedItemSave = null;
-  isCreating.value = false;
-  handleCancel();
-};
-
-const handleRemove = (id: string) => {
-  const index = cv.educationList.findIndex((item) => item.id === id);
-  cv.educationList.splice(index, 1);
-  selectedItem.value = null;
-  selectedItemSave = null;
-};
-
-const handleCancel = () => {
-  if (!selectedItem.value) {
-    return;
-  }
-
-  const id = selectedItem.value.id;
-  if (isCreating.value) {
-    handleRemove(id);
-    isCreating.value = false;
-  } else {
-    const index = cv.educationList.findIndex((item) => item.id === id);
-    cv.educationList.splice(index, 1, selectedItemSave as TEducation);
-  }
-
-  selectedItem.value = null;
-  selectedItemSave = null;
-};
-
-const handleSelectItem = (item: TEducation) => {
-  const isSameItem = selectedItem.value && item.id === selectedItem.value.id;
-
-  if (isSameItem) {
-    const id = item.id;
-    const index = cv.educationList.findIndex((item) => item.id === id);
-    cv.educationList.splice(index, 1, selectedItemSave as TEducation);
-
-    selectedItem.value = null;
-    selectedItemSave = null;
-  }
-
-  handleCancel();
-
-  if (!isSameItem) {
-    selectedItem.value = item;
-    selectedItemSave = { ...item };
-  }
-};
-
-const handleCreateItem = () => {
-  handleCancel();
-
-  isCreating.value = !isCreating.value;
-  if (isCreating.value) {
-    selectedItem.value = {
-      id: uuidv4(),
-      schoolName: "",
-      title: "",
-      startDate: "",
-      endDate: "",
-    };
-
-    cv.educationList.push(selectedItem.value);
-  }
-};
-</script>
-
 <template>
   <div class="rounded-md border-2 p-4">
     <h2 class="text-xl font-bold">Education Information</h2>
@@ -191,3 +104,90 @@ const handleCreateItem = () => {
     </form>
   </div>
 </template>
+
+<script setup lang="ts">
+import { ref, computed } from "vue";
+import type { Ref } from "vue";
+import { TEducation } from "@/types";
+import { useCVStore } from "@/stores/cv";
+import { v4 as uuidv4 } from "uuid";
+
+const cv = useCVStore();
+
+const isCreating = ref(false);
+const selectedItem: Ref<TEducation | null> = ref(null);
+let selectedItemSave: TEducation | null = null;
+
+const isSelected = computed(() => {
+  return selectedItem.value && Object.keys(selectedItem.value).length > 0;
+});
+
+const handleSubmit = () => {
+  selectedItem.value = null;
+  selectedItemSave = null;
+  isCreating.value = false;
+  handleCancel();
+};
+
+const handleRemove = (id: string) => {
+  const index = cv.educationList.findIndex((item) => item.id === id);
+  cv.educationList.splice(index, 1);
+  selectedItem.value = null;
+  selectedItemSave = null;
+};
+
+const handleCancel = () => {
+  if (!selectedItem.value) {
+    return;
+  }
+
+  const id = selectedItem.value.id;
+  if (isCreating.value) {
+    handleRemove(id);
+    isCreating.value = false;
+  } else {
+    const index = cv.educationList.findIndex((item) => item.id === id);
+    cv.educationList.splice(index, 1, selectedItemSave as TEducation);
+  }
+
+  selectedItem.value = null;
+  selectedItemSave = null;
+};
+
+const handleSelectItem = (item: TEducation) => {
+  const isSameItem = selectedItem.value && item.id === selectedItem.value.id;
+
+  if (isSameItem) {
+    const id = item.id;
+    const index = cv.educationList.findIndex((item) => item.id === id);
+    cv.educationList.splice(index, 1, selectedItemSave as TEducation);
+
+    selectedItem.value = null;
+    selectedItemSave = null;
+  }
+
+  handleCancel();
+
+  if (!isSameItem) {
+    selectedItem.value = item;
+    selectedItemSave = { ...item };
+  }
+};
+
+const handleCreateItem = () => {
+  handleCancel();
+
+  isCreating.value = !isCreating.value;
+  if (isCreating.value) {
+    selectedItem.value = {
+      id: uuidv4(),
+      schoolName: "",
+      title: "",
+      startDate: "",
+      endDate: "",
+    };
+
+    cv.educationList.push(selectedItem.value);
+  }
+};
+</script>

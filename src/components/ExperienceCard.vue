@@ -1,13 +1,3 @@
-<script setup lang="ts">
-defineProps<{
-  companyName: string;
-  position: string;
-  description: string;
-  startDate: string;
-  endDate: string;
-}>();
-</script>
-
 <template>
   <div class="my-4">
     <div>
@@ -18,3 +8,13 @@ defineProps<{
     <div class="leading-tight">{{ description }}</div>
   </div>
 </template>
+
+<script setup lang="ts">
+defineProps<{
+  companyName: string;
+  position: string;
+  description: string;
+  startDate: string;
+  endDate: string;
+}>();
+</script>

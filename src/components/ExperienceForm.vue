@@ -1,91 +1,3 @@
-<script setup lang="ts">
-import { ref, computed } from "vue";
-import type { Ref } from "vue";
-import { TJob } from "@/types";
-import { useCVStore } from "@/stores/cv";
-import { v4 as uuidv4 } from "uuid";
-
-const cv = useCVStore();
-
-const isCreating = ref(false);
-const selectedItem: Ref<TJob | null> = ref(null);
-let selectedItemSave: TJob | null = null;
-
-const isSelected = computed(() => {
-  return selectedItem.value && Object.keys(selectedItem.value).length > 0;
-});
-
-const handleSubmit = () => {
-  selectedItem.value = null;
-  selectedItemSave = null;
-  isCreating.value = false;
-  handleCancel();
-};
-
-const handleRemove = (id: string) => {
-  const index = cv.jobList.findIndex((item) => item.id === id);
-  cv.jobList.splice(index, 1);
-  selectedItem.value = null;
-  selectedItemSave = null;
-};
-
-const handleCancel = () => {
-  if (!selectedItem.value) {
-    return;
-  }
-
-  const id = selectedItem.value.id;
-  if (isCreating.value) {
-    handleRemove(id);
-    isCreating.value = false;
-  } else {
-    const index = cv.jobList.findIndex((item) => item.id === id);
-    cv.jobList.splice(index, 1, selectedItemSave as TJob);
-  }
-
-  selectedItem.value = null;
-  selectedItemSave = null;
-};
-
-const handleSelectItem = (item: TJob) => {
-  const isSameItem = selectedItem.value && item.id === selectedItem.value.id;
-
-  if (isSameItem) {
-    const id = item.id;
-    const index = cv.jobList.findIndex((item) => item.id === id);
-    cv.jobList.splice(index, 1, selectedItemSave as TJob);
-
-    selectedItem.value = null;
-    selectedItemSave = null;
-  }
-
-  handleCancel();
-
-  if (!isSameItem) {
-    selectedItem.value = item;
-    selectedItemSave = { ...item };
-  }
-};
-
-const handleCreateItem = () => {
-  handleCancel();
-
-  isCreating.value = !isCreating.value;
-  if (isCreating.value) {
-    selectedItem.value = {
-      id: uuidv4(),
-      companyName: "",
-      description: "",
-      position: "",
-      startDate: "",
-      endDate: "",
-    };
-
-    cv.jobList.push(selectedItem.value);
-  }
-};
-</script>
-
 <template>
   <div class="rounded-md border-2 p-4">
     <h2 class="text-xl font-bold">Experience Information</h2>
@@ -203,3 +115,91 @@ const handleCreateItem = () => {
     </form>
   </div>
 </template>
+
+<script setup lang="ts">
+import { ref, computed } from "vue";
+import type { Ref } from "vue";
+import { TJob } from "@/types";
+import { useCVStore } from "@/stores/cv";
+import { v4 as uuidv4 } from "uuid";
+
+const cv = useCVStore();
+
+const isCreating = ref(false);
+const selectedItem: Ref<TJob | null> = ref(null);
+let selectedItemSave: TJob | null = null;
+
+const isSelected = computed(() => {
+  return selectedItem.value && Object.keys(selectedItem.value).length > 0;
+});
+
+const handleSubmit = () => {
+  selectedItem.value = null;
+  selectedItemSave = null;
+  isCreating.value = false;
+  handleCancel();
+};
+
+const handleRemove = (id: string) => {
+  const index = cv.jobList.findIndex((item) => item.id === id);
+  cv.jobList.splice(index, 1);
+  selectedItem.value = null;
+  selectedItemSave = null;
+};
+
+const handleCancel = () => {
+  if (!selectedItem.value) {
+    return;
+  }
+
+  const id = selectedItem.value.id;
+  if (isCreating.value) {
+    handleRemove(id);
+    isCreating.value = false;
+  } else {
+    const index = cv.jobList.findIndex((item) => item.id === id);
+    cv.jobList.splice(index, 1, selectedItemSave as TJob);
+  }
+
+  selectedItem.value = null;
+  selectedItemSave = null;
+};
+
+const handleSelectItem = (item: TJob) => {
+  const isSameItem = selectedItem.value && item.id === selectedItem.value.id;
+
+  if (isSameItem) {
+    const id = item.id;
+    const index = cv.jobList.findIndex((item) => item.id === id);
+    cv.jobList.splice(index, 1, selectedItemSave as TJob);
+
+    selectedItem.value = null;
+    selectedItemSave = null;
+  }
+
+  handleCancel();
+
+  if (!isSameItem) {
+    selectedItem.value = item;
+    selectedItemSave = { ...item };
+  }
+};
+
+const handleCreateItem = () => {
+  handleCancel();
+
+  isCreating.value = !isCreating.value;
+  if (isCreating.value) {
+    selectedItem.value = {
+      id: uuidv4(),
+      companyName: "",
+      description: "",
+      position: "",
+      startDate: "",
+      endDate: "",
+    };
+
+    cv.jobList.push(selectedItem.value);
+  }
+};
+</script>

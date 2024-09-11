@@ -1,12 +1,3 @@
-<script setup lang="ts">
-defineProps<{
-  schoolName: string;
-  title: string;
-  startDate: string;
-  endDate: string;
-}>();
-</script>
-
 <template>
   <div class="my-4">
     <div>
@@ -16,3 +7,12 @@ defineProps<{
     <div class="text-lg">{{ title }}</div>
   </div>
 </template>
+
+<script setup lang="ts">
+defineProps<{
+  schoolName: string;
+  title: string;
+  startDate: string;
+  endDate: string;
+}>();
+</script>

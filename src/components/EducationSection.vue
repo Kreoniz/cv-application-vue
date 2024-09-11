@@ -1,10 +1,3 @@
-<script setup lang="ts">
-import EducationCard from "@/components/EducationCard.vue";
-import { useCVStore } from "@/stores/cv";
-
-const cv = useCVStore();
-</script>
-
 <template>
   <div>
     <div class="border-b-2 border-black text-xl font-semibold">Education</div>
@@ -18,3 +11,10 @@ const cv = useCVStore();
     />
   </div>
 </template>
+
+<script setup lang="ts">
+import EducationCard from "@/components/EducationCard.vue";
+import { useCVStore } from "@/stores/cv";
+
+const cv = useCVStore();
+</script>
