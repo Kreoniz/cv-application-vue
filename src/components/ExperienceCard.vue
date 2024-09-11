@@ -10,11 +10,6 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
-  companyName: string;
-  position: string;
-  description: string;
-  startDate: string;
-  endDate: string;
-}>();
+import { IExperienceCardProps } from "@/types";
+defineProps<IExperienceCardProps>();
 </script>

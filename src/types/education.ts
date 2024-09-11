@@ -5,3 +5,10 @@ export type TEducation = {
   startDate: string;
   endDate: string;
 };
+
+export interface IEducationCardProps {
+  schoolName: string;
+  title: string;
+  startDate: string;
+  endDate: string;
+}

@@ -9,10 +9,6 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
-  schoolName: string;
-  title: string;
-  startDate: string;
-  endDate: string;
-}>();
+import { IEducationCardProps } from "@/types";
+defineProps<IEducationCardProps>();
 </script>
