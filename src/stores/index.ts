@@ -1,1 +1,1 @@
-export { useCVStore } from "./cv";
+export { cvStore } from "./cv";

@@ -36,10 +36,10 @@ import EducationForm from "@/components/EducationForm.vue";
 import ExperienceForm from "@/components/ExperienceForm.vue";
 
 import { onMounted } from "vue";
-import { useCVStore } from "@/stores/cv";
+import { cvStore } from "@/stores/cv";
 import { cvExampleData } from "@/exampleData";
 
-const cv = useCVStore();
+const cv = cvStore();
 
 const clearCV = () => {
   cv.generalInfo = { name: "", email: "", phone: "" };

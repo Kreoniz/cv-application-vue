@@ -23,7 +23,7 @@
 <script setup lang="ts">
 import ExperienceSection from "@/components/ExperienceSection.vue";
 import EducationSection from "@/components/EducationSection.vue";
-import { useCVStore } from "@/stores/cv";
+import { cvStore } from "@/stores/cv";
 
-const cv = useCVStore();
+const cv = cvStore();
 </script>

@@ -109,10 +109,10 @@
 import { ref, computed } from "vue";
 import type { Ref } from "vue";
 import { TEducation } from "@/types";
-import { useCVStore } from "@/stores/cv";
+import { cvStore } from "@/stores/cv";
 import { v4 as uuidv4 } from "uuid";
 
-const cv = useCVStore();
+const cv = cvStore();
 
 const isCreating = ref(false);
 const selectedItem: Ref<TEducation | null> = ref(null);

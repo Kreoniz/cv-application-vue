@@ -14,7 +14,7 @@
 
 <script setup lang="ts">
 import EducationCard from "@/components/EducationCard.vue";
-import { useCVStore } from "@/stores/cv";
+import { cvStore } from "@/stores/cv";
 
-const cv = useCVStore();
+const cv = cvStore();
 </script>

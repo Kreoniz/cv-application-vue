@@ -39,7 +39,7 @@
 </template>
 
 <script setup lang="ts">
-import { useCVStore } from "@/stores/cv";
+import { cvStore } from "@/stores/cv";
 
-const cv = useCVStore();
+const cv = cvStore();
 </script>

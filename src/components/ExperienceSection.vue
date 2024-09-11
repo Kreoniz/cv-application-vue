@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 import ExperienceCard from "@/components/ExperienceCard.vue";
-import { useCVStore } from "@/stores/cv";
+import { cvStore } from "@/stores/cv";
 
-const cv = useCVStore();
+const cv = cvStore();
 </script>
