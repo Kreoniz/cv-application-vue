@@ -1,11 +1,12 @@
-import { reactive } from "vue";
+import { ref } from "vue";
+import type { Ref } from "vue";
 import { defineStore } from "pinia";
 import { TEducation, TJob, TGeneralInfo } from "@/types";
 
 export const cvStore = defineStore("cv", () => {
-  const jobList: TJob[] = reactive([]);
-  const educationList: TEducation[] = reactive([]);
-  const generalInfo: TGeneralInfo = reactive({
+  const jobList: Ref<TJob[]> = ref([]);
+  const educationList: Ref<TEducation[]> = ref([]);
+  const generalInfo: Ref<TGeneralInfo> = ref({
     name: "",
     email: "",
     phone: "",
