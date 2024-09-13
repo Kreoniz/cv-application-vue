@@ -3,10 +3,10 @@
     <div
       class="flex flex-wrap items-center justify-center gap-4 bg-sky-800 p-8 text-white"
     >
-      <div class="text-4xl font-semibold">{{ cv.generalInfo.name }}</div>
+      <div class="text-4xl font-semibold">{{ generalInfo.name }}</div>
       <div>
-        <div class="text-lg">{{ cv.generalInfo.email }}</div>
-        <div class="text-lg">{{ cv.generalInfo.phone }}</div>
+        <div class="text-lg">{{ generalInfo.email }}</div>
+        <div class="text-lg">{{ generalInfo.phone }}</div>
       </div>
     </div>
 
@@ -24,6 +24,8 @@
 import ExperienceSection from "@/components/ExperienceSection.vue";
 import EducationSection from "@/components/EducationSection.vue";
 import { cvStore } from "@/stores/cv";
+import { storeToRefs } from "pinia";
 
 const cv = cvStore();
+const { generalInfo } = storeToRefs(cv);
 </script>

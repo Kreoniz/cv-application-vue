@@ -9,7 +9,7 @@
           class="block w-full border-2 p-1"
           type="text"
           placeholder="Arthur Dent"
-          v-model="cv.generalInfo.name"
+          v-model="generalInfo.name"
         />
       </div>
 
@@ -20,7 +20,7 @@
           class="block w-full border-2 p-1"
           type="email"
           placeholder="example@domain.com"
-          v-model="cv.generalInfo.email"
+          v-model="generalInfo.email"
         />
       </div>
 
@@ -31,7 +31,7 @@
           class="block w-full border-2 p-1"
           type="tel"
           placeholder="(123) 456-7890"
-          v-model="cv.generalInfo.phone"
+          v-model="generalInfo.phone"
         />
       </div>
     </form>
@@ -40,6 +40,8 @@
 
 <script setup lang="ts">
 import { cvStore } from "@/stores/cv";
+import { storeToRefs } from "pinia";
 
 const cv = cvStore();
+const { generalInfo } = storeToRefs(cv);
 </script>

@@ -4,7 +4,7 @@
       Work experience
     </div>
     <ExperienceCard
-      v-for="job in cv.jobList"
+      v-for="job in jobList"
       :key="job.id"
       :companyName="job.companyName"
       :position="job.position"
@@ -18,6 +18,8 @@
 <script setup lang="ts">
 import ExperienceCard from "@/components/ExperienceCard.vue";
 import { cvStore } from "@/stores/cv";
+import { storeToRefs } from "pinia";
 
 const cv = cvStore();
+const { jobList } = storeToRefs(cv);
 </script>

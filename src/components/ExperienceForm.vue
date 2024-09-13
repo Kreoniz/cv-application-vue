@@ -6,7 +6,7 @@
         :disabled="
           Boolean(isCreating && selectedItem && selectedItem.id === item.id)
         "
-        v-for="item in cv.jobList"
+        v-for="item in jobList"
         :key="item.id"
         @click="() => handleSelectItem(item)"
         class="my-2 block w-full border-2 px-2 py-1 text-left text-lg font-bold transition-colors hover:bg-gray-200"
@@ -122,8 +122,10 @@ import type { Ref } from "vue";
 import { TJob } from "@/types";
 import { cvStore } from "@/stores/cv";
 import { v4 as uuidv4 } from "uuid";
+import { storeToRefs } from "pinia";
 
 const cv = cvStore();
+const { jobList } = storeToRefs(cv);
 
 const isCreating = ref(false);
 const selectedItem: Ref<TJob | null> = ref(null);
@@ -141,8 +143,8 @@ const handleSubmit = () => {
 };
 
 const handleRemove = (id: string) => {
-  const index = cv.jobList.findIndex((item) => item.id === id);
-  cv.jobList.splice(index, 1);
+  const index = jobList.value.findIndex((item) => item.id === id);
+  jobList.value.splice(index, 1);
   selectedItem.value = null;
   selectedItemSave.value = null;
 };
@@ -157,8 +159,8 @@ const handleCancel = () => {
     handleRemove(id);
     isCreating.value = false;
   } else {
-    const index = cv.jobList.findIndex((item) => item.id === id);
-    cv.jobList.splice(index, 1, selectedItemSave.value as TJob);
+    const index = jobList.value.findIndex((item) => item.id === id);
+    jobList.value.splice(index, 1, selectedItemSave.value as TJob);
   }
 
   selectedItem.value = null;
@@ -170,8 +172,8 @@ const handleSelectItem = (item: TJob) => {
 
   if (isSameItem) {
     const id = item.id;
-    const index = cv.jobList.findIndex((item) => item.id === id);
-    cv.jobList.splice(index, 1, selectedItemSave.value as TJob);
+    const index = jobList.value.findIndex((item) => item.id === id);
+    jobList.value.splice(index, 1, selectedItemSave.value as TJob);
 
     selectedItem.value = null;
     selectedItemSave.value = null;
@@ -199,7 +201,7 @@ const handleCreateItem = () => {
       endDate: "",
     };
 
-    cv.jobList.push(selectedItem.value);
+    jobList.value.push(selectedItem.value);
   }
 };
 </script>

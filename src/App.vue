@@ -36,27 +36,29 @@ import EducationForm from "@/components/EducationForm.vue";
 import ExperienceForm from "@/components/ExperienceForm.vue";
 
 import { onMounted } from "vue";
+import { storeToRefs } from "pinia";
 import { cvStore } from "@/stores/cv";
 import { cvExampleData } from "@/mocks";
 
 const cv = cvStore();
+const { generalInfo, educationList, jobList } = storeToRefs(cv);
 
 const clearCV = () => {
-  cv.generalInfo = { name: "", email: "", phone: "" };
-  cv.educationList = [];
-  cv.jobList = [];
+  generalInfo.value = { name: "", email: "", phone: "" };
+  educationList.value = [];
+  jobList.value = [];
 };
 
 const loadExampleData = () => {
   clearCV();
-  cv.generalInfo = cvExampleData.generalInfo;
+  generalInfo.value = cvExampleData.generalInfo;
 
   for (let i = 0; i < cvExampleData.educationList.length; i++) {
-    cv.educationList.push(cvExampleData.educationList[i]);
+    educationList.value.push(cvExampleData.educationList[i]);
   }
 
   for (let i = 0; i < cvExampleData.jobList.length; i++) {
-    cv.jobList.push(cvExampleData.jobList[i]);
+    jobList.value.push(cvExampleData.jobList[i]);
   }
 };
 
