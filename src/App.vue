@@ -37,7 +37,7 @@ import ExperienceForm from "@/components/ExperienceForm.vue";
 
 import { onMounted } from "vue";
 import { cvStore } from "@/stores/cv";
-import { cvExampleData } from "@/exampleData";
+import { cvExampleData } from "@/mocks";
 
 const cv = cvStore();
 
